@@ -1,3 +1,118 @@
+/* ============================================
+   1. RESET Y BASE
+============================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f3c082;
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding-top: 80px;  /* ← ESTO EVITA SUPERPOSICIÓN */
+  margin: 0;
+  
+}
+
+div,
+section,
+main,
+form {
+  margin: 0;
+  padding: 10px;
+}
+
+h2,
+h3 {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* ============================================
+   2. HEADER Y NAVEGACIÓN - FIJO ARRIBA
+============================================== */
+/* HEADER - FUNCIONAL */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgba(242, 224, 203, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 999;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.logo img {
+  height: 48px;
+  border-radius: 12px;
+}
+
+.hamburger {
+  display: none;  /* ← OCULTA POR DEFECTO (desktop) */
+  flex-direction: column;
+  gap: 4px;
+  background: white;
+  border: 2px solid #F3C082;
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.hamburger:hover {
+  background: #F3C082;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 22px;
+  background: #333;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  background: white;
+  color: #333;
+}
+
+/* HAMBURGUESA ANIMACIÓN */
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+/* ============================================
+   3. HEADER INICIO (Hero)
+============================================== */
 .headerInicio {
   height: 30vh;
   background-image:
@@ -6,68 +121,68 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  max-width: 100%;
+  margin-top: 0px; /* altura del header fijo */
 }
 
-h2 {
+.headerInicio h2 {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
 }
 
-
-header .img-logo {
-  height: 46px;
-  width: auto;
-  display: block;
-}
-
-
-body {
-  background-color: #F3C082;
-  margin: 0px;
-}
-
-header {
- display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 40px; /* antes 200px */
-  background-color: rgba(242, 224, 203, 0.95);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
-
-header>nav>a {
-  font-family: sans-serif;
-  margin: 0 15px;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: bold;
-  border: 2px solid #ffffff;
-  border-radius: 999px;
-  padding: 8px 18px;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-header > nav > a:hover {
-  background: #ffffff;
-  color: #333333;
-}
-
-nav {
-  padding-top: 1px;
-  position: absolute;
-  top: 20px;
-  right: 10px;
-}
-
-.menu {
+/* ============================================
+   4. SECCIÓN 1 Y OFERTAS
+============================================== */
+.section1 {
+  background-color: #f2e0cb;
   display: flex;
-  gap: 0px;
+  justify-content: space-around;
+  margin: 20px 0;
+  text-align: justify;
 }
 
+.section1-text {
+  max-width: 500px;
+  font-family: sans-serif;
+}
+
+.ofertas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 10px 0;
+}
+
+.ofertas-propiedades {
+  display: flex;
+  gap: 2rem;
+}
+
+.ofertas-mascotas {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.promo {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 5px;
+  background: #333;
+  color: #fff;
+  width: 320px;
+  border-radius: 10px;
+}
+
+.promo h3 {
+  margin: 1rem 0 0.5rem;
+}
+
+.promo p {
+  margin: 0 1rem 1rem;
+}
+
+/* Botones generales */
+.btn-mas,
 .menu-btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
@@ -79,62 +194,36 @@ nav {
   font-weight: 700;
 }
 
+.btn-mas:hover,
 .menu-btn:hover {
-  background-color: #F3C082;
-  border-color: #F3C082;
+  background-color: #f3c082;
+  border-color: #f3c082;
 }
 
-.btn-mas {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  border-radius: 10px;
-  border: 1px solid #fff;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  font-family: sans-serif;
+/* ============================================
+   5. ANUNCIOS Y CARDS
+============================================== */
+#anuncios {
+  margin: 40px 0 20px;
+  padding: 20px 0;
 }
 
-.btn-mas:hover {
-  background-color: #F3C082;
-  border-color: #F3C082;
-}
-
-div,
-section,
-main,
-form {
-  margin: 0px 0px;
-  padding: 10px;
-}
-
-h2,
-h3 {
-  font-family: sans-serif;
+.ads-section {
+  padding: 40px 5%;
+  background: #f3c082;
   text-align: center;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 }
 
-.section1 {
-  background-color: #F2E0CB;
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0px;
-  text-align: justify;
-}
-
-.contacto {
-  background-color: #F2E0CB;
-}
-
-.section1-text {
-  max-width: 500px;
-  font-family: sans-serif;
-}
-
-.img-anuncio {
-  max-width: 100%;
-  height: auto;
+.ads-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #2b2b2b;
 }
 
 .anuncios {
@@ -145,30 +234,14 @@ h3 {
   margin: 0 auto;
 }
 
-#anuncios {
-  margin: 40px 0px 20px;
-  padding: 20px 0px;
-}
-
-.ads-section {
-  padding: 40px 5%;
-  background: #F3C082;
-  text-align: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
-.ads-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #2b2b2b;
-}
-
 .aununcio-item {
   background: #e9a96e;
   border-radius: 16px;
   padding: 18px 16px 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   cursor: pointer;
 }
 
@@ -197,10 +270,24 @@ h3 {
   color: #000000;
 }
 
+.img-anuncio,
+.img-promo,
+.imagen_home {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
 
+.img-promo:hover {
+  transform: scale(1.1);
+  border-radius: 30px;
+}
+
+/* ============================================
+   6. VIDEO HERO
+============================================== */
 .video-hero {
   background: #111;
-  /* bandas oscuras arriba/abajo */
   padding: 40px 0;
 }
 
@@ -210,33 +297,16 @@ h3 {
   align-items: center;
   padding: 40px 0;
   background-color: #111;
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .video-wrapper video {
   width: 80%;
   max-width: 900px;
-  /* parecido a un video grande centrado */
   border-radius: 4px;
 }
-
-/* Imagen ancho completo */
-.video-hero {
-  background: #111;
-  padding: 40px 0;
-}
-
-.video-wrapper {
-  position: relative;
-  max-width: 100%;
-  margin: 0 auto;
-  background: #000;
-}
-.video-wrapper video {
-  max-width:  100%;
-  height: auto;
-  display: block;
-}
-
 
 .play-btn {
   position: absolute;
@@ -245,26 +315,30 @@ h3 {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  border: 3px solid #ffb167;          /* tono naranja parecido al fondo */
+  border: 3px solid #ffb167;
   background: radial-gradient(circle, #ffcf8a 0%, #ff8b3d 40%, #c85a17 100%);
-  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
 }
 
 .play-btn::before {
   content: "";
   border-style: solid;
-  border-width: 12px 0 12px 20px;   /* tamaño del triángulo */
+  border-width: 12px 0 12px 20px;
   border-color: transparent transparent transparent #fff;
   margin-left: 4px;
 }
+
 .play-btn:hover {
- transform: scale(1.05);
+  transform: scale(1.05);
   background: rgba(0, 0, 0, 0.6);
 }
 
@@ -272,82 +346,82 @@ h3 {
   display: none;
 }
 
-
-
-.img-banner {
-  max-width: 100%;
-  height: auto;
+/* ============================================
+   7. CARDS PRODUCTOS
+============================================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.img-logo {
-  border-radius: 15px;
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  height: auto;
-  max-width: 100%;
+.card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.img-promo:hover {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  transform: scale(1.1);
-  border-radius: 30px;
+/* ============================================
+   8. CONTACTO Y FORMULARIO
+============================================== */
+.contacto {
+  background-color: #f2e0cb;
 }
 
-
-.imagen_home {
-  border-radius: 20px;
-  max-width: 100%;
-  height: auto;
-
+label,
+legend {
+  font-family: sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
 }
 
-.ofertas {
+input,
+textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem;
+  display: block;
+  width: 95%;
+  background-color: #f3c082;
+  border: 1px solid gray;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  height: 20rem;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(100deg, #342c3b, #c97136);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  padding: 10px 0px;
+  justify-content: center;
+  margin: 0 auto;
 }
 
-.ofertas-propiedades {
+.btn-c {
   display: flex;
-  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
-.ofertas-mascotas {
-  font-size: 2rem;
-  text-align: center;
-}
-
-.promo {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  gap: 5px;
-  background: #333;
-  color: #fff;
-  width: 320px;
-  border-radius: 10px;
-
-}
-
-.promo h3 {
-  margin: 1rem 0 0.5rem;
-  font-family: sans-serif;
-}
-
-.promo p {
-  margin: 0 1rem 1rem;
-  font-family: sans-serif;
-}
-
-
-/*---------------------FOOTER----------------------------------*/
+/* ============================================
+   9. FOOTER
+============================================== */
 .footer {
-  background: #333;              
+  background: #333;
   color: #f9f2e9;
   padding: 40px 20px 20px;
   font-family: sans-serif;
@@ -375,7 +449,6 @@ h3 {
   opacity: 0.85;
 }
 
-/* enlaces */
 .footer-links {
   display: flex;
   flex-direction: row;
@@ -387,7 +460,9 @@ h3 {
   text-decoration: none;
   font-size: 0.95rem;
   opacity: 0.9;
-  transition: opacity 0.2s ease, transform 0.15s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease;
 }
 
 .footer-links a:hover {
@@ -395,100 +470,46 @@ h3 {
   transform: translateX(2px);
 }
 
-/* contacto */
 .footer-contact p {
   margin: 0;
   font-size: 0.9rem;
   opacity: 0.9;
 }
 
-/* parte inferior --  footer */
 .footer-bottom {
-  border-top: 1px solid rgba(249,242,233,0.15);
+  border-top: 1px solid rgba(249, 242, 233, 0.15);
   text-align: center;
   padding-top: 10px;
   font-size: 0.85rem;
   opacity: 0.8;
 }
 
-/* responsive */
-@media (max-width: 768px) {
-  .footer-top {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-
-/*-------------------------------------------------------*/
-
-/*Formulario de contacto*/
-
-label,
-legend {
-  font-family: sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  display: block;
-}
-
-button {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(100deg, #342c3b, #c97136);
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-  align-items: center;
-}
-
-input,
-textarea {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 1rem;
-  display: block;
-  width: 95%;
-  background-color: #F3C082;
-  border: 1px solid gray;
-  border-radius: 1rem;
-  margin-bottom: 1rem;
-
-}
-
-textarea {
-  height: 20rem;
-}
-
-.btn-c {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-/*-------@Media----------*/
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.card {
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-
-
-/* Tablets */
+/* ============================================
+   10. RESPONSIVE - TABLET (992px)
+============================================== */
 @media (max-width: 992px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .anuncios {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .section1 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ofertas-propiedades {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header {
+    padding: 10px 20px;
   }
 
   .headerInicio {
@@ -496,10 +517,74 @@ textarea {
   }
 }
 
-/* Móviles */
+/* ============================================
+   11. RESPONSIVE - MÓVIL (600px)
+============================================== */
 @media (max-width: 600px) {
+  header {
+    padding: 10px 16px;
+  }
+
+  /* Hamburguesa visible */
+  .hamburger {
+    display: flex;
+    
+  }
+
+  /* Menú hamburguesa */
+  .nav-menu {
+    position: fixed;
+    top: 70px; /* JUSTO debajo del header fijo */
+    left: 0;
+    right: 0;
+    background: rgba(235, 194, 140, 0.98); /* fondo más oscuro */
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.3s ease;
+    backdrop-filter: blur(10px); /* efecto glass */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+
+  .nav-menu.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-menu a {
+    width: 80%;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  /* Layout móvil */
   .cards {
     grid-template-columns: 1fr;
+  }
+
+  .anuncios {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .video-wrapper {
+    padding: 0 12px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .menu {
@@ -507,7 +592,8 @@ textarea {
     gap: 10px;
   }
 
-  .video-wrapper {
-    padding: 0 12px;
+  input,
+  textarea {
+    width: 100%;
   }
 }
